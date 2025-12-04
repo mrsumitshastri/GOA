@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goa Family Trip Plan | 26 Dec 2025 - 1 Jan 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .itinerary-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .header .dates {
+            background-color: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-top: 15px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .trip-info {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 40px;
+            background-color: #f1f8ff;
+            border-bottom: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 10px;
+            min-width: 150px;
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e5799;
+        }
+        
+        .day-plan {
+            padding: 35px 40px;
+        }
+        
+        .day {
+            margin-bottom: 40px;
+            border-left: 4px solid #2989d8;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .day:last-child {
+            margin-bottom: 0;
+        }
+        
+        .day-header {
+            margin-bottom: 20px;
+        }
+        
+        .day-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e5799;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .day-date {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .day-theme {
+            display: inline-block;
+            background-color: #e8f2ff;
+            color: #1e5799;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .activities {
+            list-style-type: none;
+        }
+        
+        .activity {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+        }
+        
+        .activity:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .time {
+            font-weight: 600;
+            color: #2989d8;
+            min-width: 120px;
+            font-size: 1rem;
+        }
+        
+        .activity-desc {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .activity-details {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .pool-highlight {
+            background-color: #e8f6ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 3px solid #4da6ff;
+            margin: 15px 0;
+        }
+        
+        .pool-highlight .time {
+            color: #0066cc;
+            font-weight: 700;
+        }
+        
+        .hotel-note {
+            background-color: #fff8e8;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 3px solid #ffcc00;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+        
+        .footer {
+            background-color: #f1f8ff;
+            padding: 25px 40px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .emoji {
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .header, .day-plan, .footer {
+                padding: 25px 20px;
+            }
+            
+            .trip-info {
+                padding: 15px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .activity {
+                flex-direction: column;
+            }
+            
+            .time {
+                margin-bottom: 5px;
+            }
+        }
+        
+        .day::before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #2989d8;
+            left: -10px;
+            top: 5px;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #2989d8;
+        }
+    </style>
+</head>
+<body>
+    <div class="itinerary-container">
+        <div class="header">
+            <h1>Goa Family Trip Plan</h1>
+            <div class="subtitle">10 Adults + 8 Kids | 3 Private Cars</div>
+            <div class="dates">26th December 2025 – 1st January 2026</div>
+        </div>
+        
+        <div class="trip-info">
+            <div class="info-item">
+                <div class="info-label">Travel From</div>
+                <div class="info-value">Bangalore</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Meals</div>
+                <div class="info-value">Vegetarian Only</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Daily Focus</div>
+                <div class="info-value">Pool + Beach + Fun</div>
+            </div>
+        </div>
+        
+        <div class="day-plan">
+            <!-- Day 1 -->
+            <div class="day">
+                <div class="day-header">
+                    <div class="day-title"><span class="emoji">🚗</span> Day 1 – Arrival & Settle In</div>
+                    <div class="day-date">Friday, 26th December 2025</div>
+                    <div class="day-theme">Travel & Acclimatization</div>
+                </div>
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="time">4:00 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Depart Bangalore</div>
+                            <div class="activity-details">3 private cars, pack snacks & games for kids</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">8:00 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Breakfast en route</div>
+                            <div class="activity-details">Udupi Veg or Sattvik restaurant</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">4:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Arrive in Goa</div>
+                            <div class="activity-details">Reach before sunset, check-in at Ocean View Hotel</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">5:00 – 7:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Welcome Pool Session</div>
+                            <div class="activity-details">Kids swim, adults relax after the journey</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">7:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Dinner at hotel</div>
+                            <div class="activity-details">Room service or hotel restaurant, early sleep</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day">
+                <div class="day-header">
+                    <div class="day-title"><span class="emoji">🏖️</span> Day 2 – South Goa Beaches</div>
+                    <div class="day-date">Saturday, 27th December 2025</div>
+                    <div class="day-theme">Beach Day + Cultural Touch</div>
+                </div>
+                
+                <div class="pool-highlight">
+                    <span class="time">8:00 – 10:00 AM</span> 
+                    <span class="activity-title">MANDATORY POOL TIME + Breakfast</span>
+                    <div class="activity-details">Hotel pool, kids play, adults plan the day</div>
+                </div>
+                
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="time">10:30 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Colva Beach</div>
+                            <div class="activity-details">15 min drive, shallow waters safe for kids</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">1:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Lunch at beach shack</div>
+                            <div class="activity-details">Veg options available</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">2:30 – 4:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">REST TIME</div>
+                            <div class="activity-details">Nap, hotel relaxation, or optional pool time</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">5:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Betalbatim Beach Sunset</div>
+                            <div class="activity-details">Photography, evening stroll</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">7:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Dinner at hotel</div>
+                            <div class="activity-details">Family games or movie night optional</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Day 3 -->
+            <div class="day">
+                <div class="day-header">
+                    <div class="day-title"><span class="emoji">⛪</span> Day 3 – Old Goa Heritage</div>
+                    <div class="day-date">Sunday, 28th December 2025</div>
+                    <div class="day-theme">Culture + Scenic Views</div>
+                </div>
+                
+                <div class="pool-highlight">
+                    <span class="time">8:00 – 10:00 AM</span> 
+                    <span class="activity-title">POOL TIME + Breakfast</span>
+                </div>
+                
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="time">10:30 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Drive to Old Goa</div>
+                            <div class="activity-details">40 min journey</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">11:30 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Basilica of Bom Jesus</div>
+                            <div class="activity-details">UNESCO World Heritage Site</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">1:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Lunch at Panjim</div>
+                            <div class="activity-details">Navtara Veg Goa or similar restaurant</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">2:30 – 4:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">REST TIME</div>
+                            <div class="activity-details">Return to hotel, relax after morning tour</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">5:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Dona Paula Beach</div>
+                            <div class="activity-details">Famous viewpoint, photography spot</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">7:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Dinner</div>
+                            <div class="activity-details">At hotel or nearby restaurant</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Day 4 -->
+            <div class="day">
+                <div class="day-header">
+                    <div class="day-title"><span class="emoji">🚤</span> Day 4 – Water Sports + Hotel Move</div>
+                    <div class="day-date">Monday, 29th December 2025</div>
+                    <div class="day-theme">Adventure Day</div>
+                </div>
+                
+                <div class="pool-highlight">
+                    <span class="time">8:00 – 10:00 AM</span> 
+                    <span class="activity-title">POOL TIME + Breakfast</span>
+                    <div class="activity-details">Final swim at Ocean View Hotel before checkout</div>
+                </div>
+                
+                <div class="hotel-note">
+                    <strong>Hotel Change:</strong> Check out from Ocean View Hotel, move to Hotel Indie Stays in Candolim
+                </div>
+                
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="time">11:00 AM – 2:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Water Sports Package</div>
+                            <div class="activity-details">Banana ride, bumper ride, speed boat (kid-friendly)</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">4:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Check-in Hotel Indie Stays</div>
+                            <div class="activity-details">Kids explore new pool immediately</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">6:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Candolim Beach Walk</div>
+                            <div class="activity-details">Sunset stroll on the beach</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Day 5 -->
+            <div class="day">
+                <div class="day-header">
+                    <div class="day-title"><span class="emoji">🐬</span> Day 5 – Dolphins + North Goa</div>
+                    <div class="day-date">Tuesday, 30th December 2025</div>
+                    <div class="day-theme">Wildlife + Beach Fun</div>
+                </div>
+                
+                <div class="pool-highlight">
+                    <span class="time">8:00 – 10:00 AM</span> 
+                    <span class="activity-title">POOL TIME + Breakfast</span>
+                </div>
+                
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="time">10:30 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Dolphin Trip at Miramar</div>
+                            <div class="activity-details">Private boat for group, 1.5 hours duration</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">2:00 – 4:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">REST TIME / POOL</div>
+                            <div class="activity-details">Hotel relaxation after morning activity</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">4:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Calangute Beach</div>
+                            <div class="activity-details">Lively beach, kid-friendly atmosphere</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">7:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Dinner at hotel</div>
+                            <div class="activity-details">Optional sunset cruise for adults only</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Day 6 -->
+            <div class="day">
+                <div class="day-header">
+                    <div class="day-title"><span class="emoji">🎉</span> Day 6 – New Year's Eve Relaxed</div>
+                    <div class="day-date">Wednesday, 31st December 2025</div>
+                    <div class="day-theme">Beach Day + Celebration</div>
+                </div>
+                
+                <div class="pool-highlight">
+                    <span class="time">8:00 – 10:00 AM</span> 
+                    <span class="activity-title">POOL TIME + Breakfast</span>
+                </div>
+                
+                <div class="hotel-note">
+                    <strong>Hotel Change:</strong> Check out from Hotel Indie Stays, move to Hotel Horn Ok Please in Mandrem (North Goa)
+                </div>
+                
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="time">3:00 – 5:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Pool Time + Beach Access</div>
+                            <div class="activity-details">Enjoy new hotel amenities, Arambol Beach nearby</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">7:00 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Early Dinner at beach shack</div>
+                            <div class="activity-details">Veg options, casual dining</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">8:30 PM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Kid-friendly NYE Celebration</div>
+                            <div class="activity-details">Music, games, safe sparklers on beach</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">12:00 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">New Year Countdown</div>
+                            <div class="activity-details">Optional for adults, kids asleep by 10:30 PM</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Day 7 -->
+            <div class="day">
+                <div class="day-header">
+                    <div class="day-title"><span class="emoji">👋</span> Day 7 – Departure</div>
+                    <div class="day-date">Thursday, 1st January 2026</div>
+                    <div class="day-theme">Relaxed Goodbye</div>
+                </div>
+                
+                <div class="pool-highlight">
+                    <span class="time">8:00 – 10:00 AM</span> 
+                    <span class="activity-title">FINAL POOL TIME + Breakfast</span>
+                    <div class="activity-details">Last swim, pack up, check out by 10:30 AM</div>
+                </div>
+                
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="time">11:00 AM</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Depart Goa for Bangalore</div>
+                            <div class="activity-details">3 cars, lunch en route, dinner break</div>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="time">1:00 AM (2nd Jan)</div>
+                        <div class="activity-desc">
+                            <div class="activity-title">Reach Bangalore</div>
+                            <div class="activity-details">Trip ends, safe return home</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Important:</strong> This itinerary balances exploration, relaxation, and fun for all ages.</p>
+            <p>Daily pool time (8-10 AM) is mandatory for kid happiness. Rest time (2:30-4:30 PM) is essential for group energy.</p>
+            <p>All meals are vegetarian. Be flexible and adjust based on group energy levels.</p>
+            <p style="margin-top: 15px; color: #1e5799; font-weight: 600;">Have a safe and memorable Goa trip! 🏝️</p>
+        </div>
+    </div>
+</body>
+</html>
